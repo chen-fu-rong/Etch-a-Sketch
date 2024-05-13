@@ -11,8 +11,6 @@ function createGrid(rows, cols) {
     }
 }
 
-createGrid(16, 16);
-
 function draw() {
     const cells = container.querySelectorAll(".grid-cell");
 
@@ -34,9 +32,24 @@ function draw() {
     });
 }
 
+function updateGridSize (size) {
+    container.innerHTML = "";
+    createGrid(size, size)
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`
+}
+
+createGrid(16, 16);
 draw();
 
 const sizeButton = document.querySelector("#size");
 sizeButton.addEventListener("click", () => {
-    let userSize = prompt("Input your board size.", "64")
-})
+    let userSize = prompt("Input your board size.", "64");
+    if (userSize && !isNaN(userSize) && parseInt(userSize) > 0) {
+        updateGridSize(parseInt(userSize));
+    } else {
+        alert("Invalid input. Please enter a positive number.");
+    }
+});
+
+
