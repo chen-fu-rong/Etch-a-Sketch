@@ -20,10 +20,17 @@ body {
 .grid-cell {
     width: 1fr;
     height: 1fr;   
-    border: 1px solid brown;
+    border: 1px solid darkgray;
 }
 
 .grid-cell:hover {
-    background-color: black;
+    background-color: darkgray;
 }
 
+
+  
+#color-value {
+    width: 100px;
+    padding: 5px;
+    margin-left: 10px;
+}

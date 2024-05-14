@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 let isDrawing = false;
 
+
 function createGrid(rows, cols) {
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
@@ -13,10 +14,11 @@ function createGrid(rows, cols) {
 
 function draw() {
     const cells = container.querySelectorAll(".grid-cell");
+    
 
     container.addEventListener("mousedown", event => {
         if (event.target.classList.contains("grid-cell")) {
-            event.target.style.backgroundColor = "black";
+            event.target.style.backgroundColor = colorPicker.value;
             isDrawing = true;
         }
     });
@@ -27,9 +29,12 @@ function draw() {
 
     container.addEventListener("mousemove", event => {
         if (isDrawing && event.target.classList.contains("grid-cell")) {
-            event.target.style.backgroundColor = "black";
-        }
+            event.target.style.backgroundColor = colorPicker.value;
+        } 
+        
     });
+
+ 
 }
 
 function updateGridSize (size) {
@@ -51,5 +56,7 @@ sizeButton.addEventListener("click", () => {
         alert("Invalid input. Please enter a positive number.");
     }
 });
+
+
 
 
